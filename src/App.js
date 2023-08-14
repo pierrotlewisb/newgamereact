@@ -1,25 +1,86 @@
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
 
-function App() {
+class  App extends Component {
+
+
+    state = {
+      loading : true,
+      nbrSecret : 0
+    }
+    
+      
+    componentDidMount = () =>{
+      setTimeout( () => {
+        this.setState({loading : false })
+      }, 3000)
+
+      this.setState({nbrSecret : Math.floor(Math.random() * (20 - 0 + 1)) + 0 })
+    }
+
+    rechose = () =>{
+
+      alert('Bravo vous avez trouvé la bonne réponse')
+      this.setState({loading : true })
+      setTimeout( () => {
+        this.setState({loading : false })
+      }, 3000)
+
+      this.setState({nbrSecret : Math.floor(Math.random() * (20 - 0 + 1)) + 0 })
+    }
+  
+    btnVerif = () => {
+
+      this.useeNbr.value < this.state.nbrSecret ?
+
+        (alert('Votre nombre est trop petit')) :
+
+        this.useeNbr.value > this.state.nbrSecret ?
+
+        (alert('Votre nombre est trop grand')) :
+        
+        (this.rechose()
+        )
+
+    }
+  render(){
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+        {this.state.loading ?
+        
+        (<label>Chargement en cours...{console.log(this.state.loading)}</label> ) : (
+
+
+          <div>
+          <label>Le nombre secret est entre 0 et 20</label> <br />
+          <input
+            className="input-nbrUser"
+            type='text'
+            placeholder='Entrez un nombre ici'
+            autoFocus
+            ref={ref => this.useeNbr = ref}
+          /> <br />
+          <input
+            className="input-submit"
+            type='submit'
+            value={"Vérifier"}
+            onClick={
+              this.btnVerif
+            }
+            
+          />
+        </div>
+        )
+
+        }
+        
+        
       </header>
     </div>
   );
+}
 }
 
 export default App;

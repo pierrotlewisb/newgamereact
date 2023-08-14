@@ -7,6 +7,48 @@
   pointer-events: none;
 }
 
+.input-nbrUser{
+  margin-top: 20px;
+  /* height: 20px;
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 20px;
+  background-color: #000;
+  color: #fff; */
+  /* cursor: copy; */
+  padding: 15px;
+    border: none;
+    margin-bottom: 10px;
+    font-size: 14px;
+    outline: none;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.input-submit{
+  margin-top: 10px;
+  /* border: none;
+  outline: none;
+  
+  font-size: 14px;
+  background-color: #fff;
+  color: #000; */
+  background: #000000;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px;
+  border: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 200px;
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
